@@ -14,7 +14,12 @@ class BaseRepository
         return $this->entity->findOrFail($id);
     }
 
-    public function create(object $data): object
+    public function findByWhere(array $data): object|null
+    {
+        return $this->entity->where($data)->first();
+    }
+
+    public function create(array $data): object
     {
         return $this->entity->create((array) $data);
     }

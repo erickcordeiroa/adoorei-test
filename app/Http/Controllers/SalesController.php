@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaleRequest;
 use App\Http\Resources\SalesResource;
 use App\Services\SalesService;
 use Error;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
 
 class SalesController extends Controller
@@ -27,9 +29,14 @@ class SalesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SaleRequest $request)
     {
-        //
+        try {
+            $this->salesService->create($request->all());
+            return response()->json(['message' => 'Sales was successfully created']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -44,6 +51,16 @@ class SalesController extends Controller
         }
 
         return new SalesResource($sale);
+    }
+
+    public function addProductToSale(int $id, SaleRequest $request) 
+    {
+        try {
+            $this->salesService->addProductsToSale($id, $request->all());
+            return response()->json(['message' => 'Product successfully included in your sale']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 
     /**
