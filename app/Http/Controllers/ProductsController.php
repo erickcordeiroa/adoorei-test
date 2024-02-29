@@ -11,7 +11,7 @@ class ProductsController extends Controller
     ) {
     }
 
-    public function index() : object
+    public function index(): object
     {
         return $this->productService->findAll();
     }

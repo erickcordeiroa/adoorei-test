@@ -71,4 +71,5 @@ php artisan db:seed ProductSeeder
 ## Plus do projeto
 
 - Também existe no projeto o swagger para realizar a visualização de como deve ser integrada as funcionalidades.
+- Link da documentação http://localhost:8000/api/documentation
 

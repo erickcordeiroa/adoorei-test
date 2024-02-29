@@ -1,0 +1,212 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Adoorei Test Vaga Pleno/Senior",
+        "description": "Utilizando o Laravel cria uma API rest, A Loja ABC LTDA, vende produtos de diferentes nichos. No momento precisamos registrar a venda de celulares.",
+        "contact": {
+            "name": "Erick Cordeiro",
+            "email": "erickcordeiroa@gmail.com@gmail.com"
+        },
+        "license": {
+            "name": ""
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Get list of products",
+                "description": "Returns list of products",
+                "operationId": "getProductList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/sales": {
+            "get": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Get list of sales",
+                "description": "Returns list of sales",
+                "operationId": "getSalesList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Create a new sale",
+                "description": "Stores a newly created sale in the storage",
+                "operationId": "createSale",
+                "requestBody": {
+                    "description": "Sale data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "products"
+                                ],
+                                "properties": {
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "default": 1
+                                                },
+                                                "amount": {
+                                                    "type": "integer",
+                                                    "default": 1
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/sales/{id}": {
+            "get": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Get One sale",
+                "description": "Returns details of a single sale",
+                "operationId": "getSaleOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the sale",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Sale not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Delete a sale",
+                "description": "Return message if it's ok",
+                "operationId": "deleteSaleOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the sale",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Sale not found"
+                    }
+                }
+            }
+        },
+        "/api/sales/{id}/add-product": {
+            "post": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Create a new Product in the sale",
+                "description": "Stores a newly product in the sale",
+                "operationId": "addProductSale",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the sale",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Sale data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "products"
+                                ],
+                                "properties": {
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "default": 1
+                                                },
+                                                "amount": {
+                                                    "type": "integer",
+                                                    "default": 1
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    }
+}
