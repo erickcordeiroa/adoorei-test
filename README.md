@@ -66,7 +66,7 @@ php artisan db:seed ProductSeeder
 
 - O projeto já vai estar disponível em https://localhost:8000/api
 
-- O arquivo contendo as informações da api (rotas) esta na raiz do projeto com o nome de insomnia_test.json, basta importa-lo para o seu insomnia e realizar os testes.
+- O arquivo contendo as informações da api (rotas) esta na raiz do projeto com o nome de insomnia_adoorei.json, basta importa-lo para o seu insomnia e realizar os testes.
 
 ## Plus do projeto
 
