@@ -5,10 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SaleRequest;
 use App\Http\Resources\SalesResource;
 use App\Services\SalesService;
-use Error;
-use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
-use Symfony\Component\HttpFoundation\Response;
 
 class SalesController extends Controller
 {

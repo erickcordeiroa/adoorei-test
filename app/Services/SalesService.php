@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use App\DTO\SalesDTO;
-use App\Models\Sale;
 use App\Repositories\ProductsRepository;
 use App\Repositories\SaleProductsRepository;
 use App\Repositories\SalesRepository;
